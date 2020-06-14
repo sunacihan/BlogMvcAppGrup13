@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Blog Uygulaması</title>
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/modernizr-2.8.3.js"></script>
+</head>
+<body>
+
+    <div class="container-fluid bg-light">
+        <img style="float: left; padding: 0 0 10px 10px;" src="~/img/ikon_son.jpg"><h1>KİTAP KURDU</h1><p><i>Kitaplar hakkında bilmek istediğiniz her şey...</i></p>
+
+
+        <!--<div class="topnav float-right " style="margin-top: 25px; ">
+            <input type="text" placeholder="Search..">
+            <button type="submit">ARA</button>
+        </div>-->
+    </div>
+
+
+
+   <div class="navbar navbar-inverse ">
+       <div class="container">
+           <div class="navbar-header">
+               <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                   <span class="icon-bar"></span>
+                   <span class="icon-bar"></span>
+                   <span class="icon-bar"></span>
+               </button>
+               @Html.ActionLink("Anasayfa", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+           </div>
+           <div class="navbar-collapse collapse">
+               <ul class="nav navbar-nav">
+                   <li><a href="~/Blog/List">Bloglar</a></li>
+                   <li><a href="~/Blog/Index">Blog Düzenle</a></li>
+                   <li><a href="~/Categori/Index">Kategori Düzenle</a></li>
+               </ul>
+               <ul class="nav navbar-nav navbar-right">
+                   <li><a href="~/Login/Logout"><span class="glyphicon glyphicon-user"></span> Çıkış Yap</a></li>
+               </ul>
+           </div>
+       </div>
+    </div>
+
+    <div class="container body-content">
+        <div class="row">
+
+            @if (IsSectionDefined("SagKolon"))
+            {
+                <div class="col-md-8">
+                    @RenderBody()
+                </div>
+                <div class="col-md-4">
+                    @RenderSection("SagKolon")
+                </div>
+            }
+            else
+            {
+                <div class="col-md-12">
+                    @RenderBody()
+                </div>}
+
+        </div>
+
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Tüm Hakları Saklıdır</p>
+        </footer>
+    </div>
+
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+</body>
+</html>

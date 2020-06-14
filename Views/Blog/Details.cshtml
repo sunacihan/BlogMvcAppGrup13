@@ -1,0 +1,63 @@
+﻿@model BlogMvcApp.Models.Blog
+
+@{
+    ViewBag.Title = "Details";
+}
+
+
+<h1>@Model.Baslik</h1>
+<hr />
+<p>
+    <span class="glyphicon glyphicon-time">
+            @Model.EklenmeTarihi
+        </span>
+</p>
+<hr />
+    <img class="img-responsive" src="~/img/@Model.Resim" />
+    <hr />
+<blockquote>
+        @Model.Aciklama
+    </blockquote>
+    <p>
+        @Model.Icerik
+    </p>
+
+
+@section SagKolon {
+
+    <div class="well">
+
+        <h4>Blog Arama</h4>
+        <div class="input-group">
+            <input type="text" class="form-control" />
+            <span class="input-group-btn">
+                <button class="btn btn-default" type="button">
+                    ARA
+                    <span class="glyphicon glyphicon-search"></span>
+                </button>
+            </span>
+        </div>
+    </div>
+    @{ Html.RenderAction("KategoriListesi", "Categori");}
+
+}
+@*foreach (var blog in Model)
+        {
+    <div class="blog">
+        <h3 class="page-header">
+            @blog.Baslik
+        </h3>
+
+        <p>
+            <span class="glyphicon glyphicon-time"></span>
+
+            @blog.EklenmeTarihi
+
+        </p>
+        <hr />
+        <img class="img-responsive" src="~/img/@blog.Resim" alt="resim gösteriliyor" />
+        <p>@blog.Aciklama</p>
+        @Html.ActionLink("Daha fazla...", "Details", "Blog", new { id = @blog.Id }, new { @class = "btn btn-primary" })
+
+    </div>
+        }*@
